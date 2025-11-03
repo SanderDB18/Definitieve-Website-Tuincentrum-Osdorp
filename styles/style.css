@@ -1,0 +1,2439 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+/* Vaste kleuren voor light en darkmode */
+:root {
+	--TuincentrumDonkergroen: rgb(74, 113, 65);
+	--TuincentrumDonkergroen1: rgb(74, 113, 65);
+	--TuincentrumDonkergroen2: rgb(74, 113, 65);
+	--TuincentrumLichtgroen: #77a77b;
+	--TuincentrumAchtergrond: #ffffff;
+	--TuincentrumAchtergrond1: #ffffff;
+	--TuincentrumAchtergrond3: #ffffff;
+	--TuincentrumZwart: #111;
+	--TuincentrumZwart1: #111;
+	--TuincentrumGrijsLicht: #f3f3f3;
+	--TuincentrumGrijs: #f0f0f0;
+	--TuincentrumOranje: #f08c14;
+	--TuincentrumGeel: #e5be1c;
+	--TuincentrumBlauw: rgb(10, 18, 37);
+	--TuincentrumBlog-grijs: #4a4a4a;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--TuincentrumAchtergrond: #3e3e3e;
+		--TuincentrumAchtergrond3: #595959;
+		--TuincentrumDonkergroen: rgb(29, 29, 29);
+		--TuincentrumDonkergroen1: rgb(74, 113, 65);
+		--TuincentrumDonkergroen2: rgb(205, 205, 205);
+		--TuincentrumZwart: #ffffff;
+		--TuincentrumBlog-grijs: #cdcdcd;
+		--TuincentrumGrijsLicht: #dddddd;
+		--TuincentrumBlauw: rgb(0, 0, 0);
+		--TuincentrumAchtergrond1: #ffffff;
+		--TuincentrumZwart1: #111;
+	}
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+body {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--TuincentrumZwart);
+	background-color: var(--TuincentrumAchtergrond);
+}
+
+header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--TuincentrumDonkergroen);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0.5em 1em;
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 0 1em;
+	gap: 0.8em;
+}
+
+header nav a img {
+	height: 2em;
+}
+
+/* De nth of type laat zien welke van de zoveel a'tjes ik specifiek wil targetten */
+header nav a:nth-of-type(3) {
+	margin: 0 auto;
+}
+
+header nav a:nth-of-type(4) img {
+	width: 1.7em;
+	height: auto;
+}
+
+header nav a:nth-of-type(5) img {
+	width: 1.7em;
+	height: auto;
+}
+
+header nav a:nth-of-type(6) img {
+	width: 1.7em;
+	height: auto;
+}
+
+header section {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: var(--TuincentrumGrijsLicht);
+	border-radius: 0.8em;
+	padding: 0.6em 0.5em;
+}
+
+header section input {
+	flex-grow: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 1em;
+	color: var(--TuincentrumZwart);
+}
+
+header section input::placeholder {
+	color: #b0b0b0;
+}
+
+header section img {
+	height: 1em;
+}
+
+/* Vanaf 992px moet er dit gebeuren zegt de @media */
+@media (min-width: 992px) {
+	header nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	header nav a:nth-of-type(3) {
+		order: -1;
+		margin-left: 2em;
+	}
+
+	header nav a:nth-of-type(3) img {
+		height: 5em;
+		width: auto;
+	}
+
+	header nav a:nth-of-type(1) {
+		display: none;
+	}
+
+	header nav a:nth-of-type(2),
+	header nav a:nth-of-type(4),
+	header nav a:nth-of-type(5),
+	header nav a:nth-of-type(6) {
+		order: 2;
+		margin: 0;
+		margin-left: 0.5em;
+	}
+
+	header section {
+		width: 50%;
+		margin: 0 auto;
+		margin-top: -4em;
+	}
+
+	header {
+		padding-bottom: 1.6em;
+	}
+}
+
+/* Keyframes voor de schudden animatie  */
+@keyframes shake {
+
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	20%,
+	60% {
+		transform: translateX(-6px);
+	}
+
+	40%,
+	80% {
+		transform: translateX(6px);
+	}
+}
+
+.shake {
+	animation: shake 2s;
+	border: 2px solid var(--TuincentrumOranje);
+}
+
+main section:first-of-type {
+	background-color: var(--TuincentrumAchtergrond);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.1em;
+	height: 2.7em;
+	font-size: 0.8em;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+main section:first-of-type img {
+	height: 1.4em;
+	margin-right: 0.3em;
+}
+
+@media (max-width: 991.98px) {
+
+	main section:first-of-type img:nth-of-type(n+2),
+	main section:first-of-type p:nth-of-type(n+2) {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) {
+	main section:first-of-type {
+		font-size: 0.82em;
+	}
+
+	main section:first-of-type img {
+		height: 1.6em;
+		margin-right: 0.5em;
+		padding-left: 1.5em;
+	}
+}
+
+@media (min-width: 992px) {
+
+	main>section:first-child img,
+	main>section:first-child p {
+		display: inline-block !important;
+	}
+
+	main>section:first-child {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 1em;
+	}
+
+	main>section:first-child img {
+		margin-right: -1em;
+		height: 1.6em;
+		vertical-align: middle;
+	}
+
+	main>section:first-child p {
+		white-space: nowrap;
+		vertical-align: middle;
+	}
+}
+
+
+main nav:first-of-type img {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+}
+
+
+main nav:first-of-type {
+	position: fixed;
+	top: 0;
+	left: -320px;
+	width: 320px;
+	height: 100%;
+	background-color: var(--TuincentrumAchtergrond);
+	box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+	padding: 2em 1em;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	transition: left 0.3s ease;
+	z-index: 9999;
+	overflow-y: auto;
+}
+
+main nav:first-of-type.open {
+	left: 0;
+}
+
+main nav:first-of-type ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+main nav:first-of-type ul li:nth-of-type(1) {
+	color: var(--TuincentrumZwart);
+	font-weight: 600;
+	font-size: 0.91em;
+	margin-left: 0.45em;
+	margin-bottom: 0.3em;
+}
+
+main nav:first-of-type ul li:nth-of-type(15) {
+	color: var(--TuincentrumDonkergroen2);
+	font-weight: 600;
+	font-size: 0.91em;
+	margin-left: 0.45em;
+	margin-bottom: 0.3em;
+	margin-top: 0.3em;
+}
+
+main nav:first-of-type a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.7em 0.5em;
+	color: var(--TuincentrumZwart);
+	font-weight: 600;
+	font-size: 0.91em;
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+}
+
+main nav:first-of-type ul li:nth-child(n+15):nth-child(-n+21) a {
+	color: var(--TuincentrumDonkergroen2)
+}
+
+main nav:first-of-type ul p:nth-of-type(2) {
+	color: var(--TuincentrumDonkergroen2);
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 0.5em;
+	margin-bottom: 0.7em;
+	font-weight: 600;
+	font-size: 0.91em;
+}
+
+main nav:first-of-type ul p:nth-of-type(1) {
+	color: var(--TuincentrumZwart);
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 0.5em;
+	margin-bottom: 0.7em;
+	font-weight: 600;
+	font-size: 0.91em;
+}
+
+
+@media (min-width: 992px) {
+	main nav:first-of-type {
+		display: none;
+	}
+}
+
+main nav:nth-of-type(2) {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1.1em;
+	margin-top: 1em;
+	overflow-x: auto;
+	padding-left: 1em;
+}
+
+
+main>nav:nth-of-type(2) a {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	background-color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+	padding: 4px 10px;
+	border-radius: 2em;
+	font-size: 0.8em;
+	height: 4em;
+}
+
+main>nav:nth-of-type(2) a p {
+	color: #fff;
+}
+
+main>nav:nth-of-type(2) a img {
+	width: 1.8em;
+	height: 1.8em;
+}
+
+
+
+main>nav:nth-of-type(2) a:last-child {
+	margin-right: 0.8em;
+}
+
+main>nav:nth-of-type(2) a:first-of-type {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	main nav:nth-of-type(2) {
+		background-color: var(--TuincentrumGrijsLicht);
+		padding: 1em 2em;
+		gap: 2em;
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+	}
+
+	main>nav:nth-of-type(2) a:first-of-type {
+		display: inline-block;
+		font-weight: 600;
+		font-family: 'Bitter', serif;
+	}
+
+	main>nav:nth-of-type(2) a {
+		background: none;
+		height: auto;
+		padding: 0;
+	}
+
+	main>nav:nth-of-type(2) a img {
+		display: none;
+	}
+
+	main>nav:nth-of-type(2) a p {
+		color: var(--TuincentrumDonkergroen);
+		font-weight: 800;
+		font-size: 1.3em;
+		font-family: 'Bitter', serif;
+		margin: 0;
+	}
+
+	main>nav:nth-of-type(2) a:first-of-type p:first-of-type {
+		color: var(--TuincentrumLichtgroen);
+		font-weight: 800;
+		font-size: 1.3em;
+		font-family: 'Bitter', serif;
+		margin: 0;
+	}
+
+	main>nav:nth-of-type(2) a:last-child {
+		flex-basis: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: 0.5em;
+	}
+}
+
+main section:nth-of-type(2) {
+	position: relative;
+	margin-top: 1.3em;
+}
+
+main section:nth-of-type(2)>img {
+	width: 100%;
+}
+
+main section:nth-of-type(2) div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: var(--TuincentrumAchtergrond);
+}
+
+main section:nth-of-type(2) h1 {
+	font-size: 1.4em;
+	margin-bottom: 0.5em;
+	font-family: 'Bitter', serif;
+	font-weight: 700;
+	text-shadow: 0 0 0.25em rgba(0, 0, 0, 0.7);
+	text-transform: uppercase;
+	color: white;
+}
+
+main>section:nth-of-type(2) a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: var(--TuincentrumBlauw);
+	padding: 0.2em 1.4em;
+	font-size: 0.9em;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 1em;
+	margin-top: 2em;
+}
+
+main>section:nth-of-type(2) a p {
+	color: white;
+}
+
+main>section:nth-of-type(2) a img {
+	width: 0.4em;
+}
+
+
+@media (min-width: 992px) {
+	main>section:nth-of-type(2) {
+		position: relative;
+		margin-top: 1.3em;
+		margin-left: 1em;
+	}
+
+	main section:nth-of-type(2)>img {
+		width: 60%;
+		display: block;
+		margin-left: 0;
+		border-radius: 1em;
+	}
+
+	main section:nth-of-type(2) div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60%;
+	}
+}
+
+
+main section:nth-of-type(3) a p {
+	margin: 0.3em 0;
+	display: none;
+}
+
+main section:nth-of-type(3) {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin: 1em;
+}
+
+main section:nth-of-type(3)>a {
+	padding: 1.1em 1.2em;
+	text-decoration: none;
+	border-top-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	font-size: 1.05em;
+	color: var(--TuincentrumZwart);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+}
+
+main section:nth-of-type(3) a h2 {
+	margin: 0;
+	font-family: 'Bitter', serif;
+	font-weight: 700;
+	margin-bottom: 0.6em;
+	font-size: 1em;
+}
+
+
+@media (min-width: 992px) {
+
+	body.index main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	body.index main>section:nth-of-type(2) {
+		display: flex;
+		flex-direction: end;
+		align-items: flex-start;
+	}
+
+	body.index main>section:nth-of-type(2)>img {
+		width: 60%;
+		border-radius: 1em;
+		display: block;
+	}
+
+	body.index main>section:nth-of-type(2)>div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	body.index main>section:nth-of-type(3) {
+		width: 32%;
+		margin-left: 63%;
+		margin-top: -33%;
+	}
+
+	body.index main>section:nth-of-type(3) a p {
+		display: block;
+	}
+
+	body.index main section:nth-of-type(3) a h2 {
+		font-size: 1.1em;
+	}
+
+}
+
+main section:nth-of-type(4) {
+	margin: 3.5em 1em;
+}
+
+main section:nth-of-type(4) h2 {
+	font-family: 'Bitter', serif;
+	display: flex;
+	justify-content: center;
+	font-size: 1.2em;
+	margin-bottom: 2em;
+	color: var(--TuincentrumZwart);
+}
+
+main section:nth-of-type(4) ul {
+	display: flex;
+	gap: 1em;
+	overflow-x: auto;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+main section:nth-of-type(4) li {
+	flex-shrink: 0;
+}
+
+main>section:nth-of-type(4) a {
+	width: 15em;
+	flex-shrink: 0;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	border-top-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+}
+
+main section:nth-of-type(4) a img {
+	width: 100%;
+	height: 14em;
+}
+
+main section:nth-of-type(4) a p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	background: var(--TuincentrumLichtgroen);
+	color: white;
+	font-family: 'Bitter', serif;
+	text-align: center;
+	padding: 0.7em;
+	font-size: 0.9em;
+	border-top-left-radius: 2em;
+}
+
+.meer-kaart {
+	width: 15em;
+	height: 14em;
+	background: var(--TuincentrumLichtgroen);
+}
+
+.meer-kaart p {
+	top: 7em;
+}
+
+
+@media (min-width: 1200px) {
+	main section:nth-of-type(4) h2 {
+		margin-top: 5em;
+	}
+}
+
+
+main section:nth-of-type(5) {
+	position: relative;
+}
+
+main section:nth-of-type(5) h2 {
+	font-family: 'Bitter', serif;
+	text-align: center;
+	font-size: 1.2em;
+	margin-bottom: 1.5em;
+	color: var(--TuincentrumZwart);
+}
+
+main section:nth-of-type(5)::before {
+	content: "";
+	position: absolute;
+	top: 8em;
+	width: 100%;
+	height: 17em;
+	background-color: var(--TuincentrumGrijs);
+}
+
+main section:nth-of-type(5) ul {
+	display: flex;
+	gap: 1em;
+	overflow-x: auto;
+	padding: 1em;
+}
+
+main section:nth-of-type(5) ul li {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-shrink: 0;
+	flex-basis: 13.5em;
+	height: 25em;
+	background: var(--TuincentrumAchtergrond3);
+	border-radius: 1em;
+	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+	padding-top: 2em;
+}
+
+main section:nth-of-type(5) ul li img:first-of-type {
+	width: 10em;
+	margin: 0 auto 1.3em auto;
+	margin-top: 2em;
+}
+
+main section:nth-of-type(5) ul li h3 {
+	font-size: 0.85em;
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0.5em;
+	margin-left: 0.5em;
+}
+
+main section:nth-of-type(5) ul li h3+p {
+	font-size: 0.8em;
+	font-family: 'Montserrat', sans-serif;
+	color: #333;
+	background-color: var(--TuincentrumGrijs);
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	margin: 0;
+	margin-left: 1em;
+}
+
+main section:nth-of-type(5) ul li div:nth-of-type(1) {
+	position: absolute;
+	bottom: 1em;
+	left: 1em;
+}
+
+main section:nth-of-type(5) ul li div:nth-of-type(1) p:first-child {
+	color: #777;
+	text-decoration: line-through;
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Bitter', serif;
+}
+
+main section:nth-of-type(5) ul li div:nth-of-type(1) p:last-child {
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #f08c14;
+	margin: 0.1em;
+	font-family: 'Bitter', serif;
+}
+
+main section:nth-of-type(5) ul li div:nth-of-type(2) {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	width: 2.5em;
+	height: 2.5em;
+	background-color: #f08c14;
+	border-radius: 0.5em;
+}
+
+main section:nth-of-type(5) ul li div:nth-of-type(2) img {
+	width: 1.5em;
+	height: 1.5em;
+	margin-top: 0.5em;
+	margin-left: 0.4em;
+}
+
+.hartje {
+	position: absolute;
+	top: 1em;
+	right: 1.2em;
+	height: 1.5em;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(2)>img:first-of-type {
+	width: 12em;
+	height: auto;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(2)>img:nth-of-type(2) {
+	width: 8em;
+	height: auto;
+	margin-bottom: 0.4em;
+
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(2)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	color: #333;
+	background-color: var(--TuincentrumGrijs);
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 16%;
+	bottom: 19.8%;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(3)>img:first-of-type {
+	width: 7.5em;
+	height: auto;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(3)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.3em;
+}
+
+body.index main section:nth-of-type(5) ul li:nth-of-type(3) p:last-of-type {
+	z-index: 999;
+	color: var(--TuincentrumZwart1) !important;
+	text-decoration: none;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(3) div:nth-of-type(2) {
+	background-color: var(--TuincentrumZwart1);
+}
+
+
+main section:nth-of-type(5) ul li:nth-of-type(4)>img:first-of-type {
+	width: 8em;
+	height: auto;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(4)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(4)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	color: #333;
+	background-color: var(--TuincentrumGrijs);
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(4)>img:last-of-type {
+	width: 3.5em;
+	height: auto;
+	position: absolute;
+	top: 0%;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(5)>img:first-of-type {
+	width: 8em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(5)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(5)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	color: #333;
+	background-color: var(--TuincentrumGrijs);
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+main section:nth-of-type(5) ul li:nth-of-type(5)>img:last-of-type {
+	width: 3.5em;
+	height: auto;
+	position: absolute;
+	top: 0;
+}
+
+
+
+
+
+@media (min-width: 1200px) {
+	main section:nth-of-type(5) ul {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+body.index main section:nth-of-type(6) {
+	position: relative;
+}
+
+body.index main section:nth-of-type(6)>img:nth-of-type(1) {
+	width: 100%;
+	height: 39em;
+	margin-top: 2em;
+	object-fit: cover;
+}
+
+body.index main section:nth-of-type(6) div {
+	position: absolute;
+	top: 13%;
+	left: 20%;
+	right: 0%;
+	bottom: 10%;
+	background: var(--TuincentrumAchtergrond);
+	border-radius: 1em 0 0 1em;
+	padding: 1.1em;
+	z-index: 1;
+}
+
+body.index main section:nth-of-type(6) p:first-of-type {
+	color: var(--TuincentrumLichtgroen);
+	font-weight: 600;
+	margin: 0;
+	font-size: 0.6875em;
+	text-transform: uppercase;
+}
+
+body.index main section:nth-of-type(6) h3 {
+	margin-top: 0.3125em;
+	font-size: 1.2em;
+	font-family: 'Bitter', serif;
+	color: var(--TuincentrumZwart);
+}
+
+body.index main section:nth-of-type(6) p {
+	line-height: 1.5;
+	margin-bottom: 0.9375em;
+	font-size: 0.875em;
+	width: 100%;
+	color: var(--TuincentrumZwart);
+}
+
+body.index main section:nth-of-type(6) div a p:last-of-type {
+	color: var(--TuincentrumAchtergrond1);
+	font-family: 'Montserrat', sans-serif;
+	text-transform: none;
+	font-size: 0.8em;
+}
+
+body.index main section:nth-of-type(6) div a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: var(--TuincentrumBlauw);
+	padding: 1em 1.6em;
+	text-decoration: none;
+	border-radius: 0.8em;
+	margin-top: 0;
+}
+
+body.index main section:nth-of-type(6) div a img:last-of-type {
+	width: 0.4em;
+	height: auto;
+}
+
+@media (min-width: 768px) {
+	body.index main section:nth-of-type(6) div {
+		left: 40%;
+	}
+}
+
+@media (min-width: 992px) {
+	body.index main section:nth-of-type(6) div {
+		left: 50%;
+	}
+}
+
+@media (min-width: 768px) {
+	body.index main section:nth-of-type(6) div p:nth-of-type(2) {
+		margin: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	body.index main section:nth-of-type(6) div p:nth-of-type(3) {
+		margin: 0;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+}
+
+section:nth-of-type(7) h2 {
+	font-family: 'Bitter', serif;
+	text-align: center;
+	font-size: 1.4em;
+	margin-top: 2.2em;
+	margin-left: 1em;
+	margin-right: 1em;
+	color: var(--TuincentrumZwart);
+}
+
+section:nth-of-type(7) p {
+	text-align: center;
+	font-size: 0.9em;
+	margin-top: 1em;
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 1em;
+	margin-right: 1em;
+	color: var(--TuincentrumZwart)
+}
+
+section:nth-of-type(7) .slider {
+	width: 26.7em;
+	overflow: hidden;
+	margin: 1.5em auto;
+	position: relative;
+}
+
+section:nth-of-type(7) .slider-afbeeldingen {
+	display: flex;
+	margin-left: 10.2em;
+	margin-top: 1em;
+	transition: transform 0.5s ease;
+}
+
+section:nth-of-type(7) .slider-afbeeldingen>* {
+	flex-shrink: 0;
+	margin-right: 14.4em;
+	height: 3em;
+	object-fit: contain;
+}
+
+section:nth-of-type(7) .slider-afbeeldingen>a img {
+	height: 3em;
+	object-fit: contain;
+	filter: grayscale(100%);
+	opacity: 0.6;
+}
+
+section:nth-of-type(7) .slider-afbeeldingen>a:last-of-type {
+	align-items: center;
+	justify-content: center;
+	height: 3em;
+	min-width: 7.5em;
+	font-size: 0.9em;
+	background-color: var(--TuincentrumLichtgroen);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	text-decoration: none;
+	flex-shrink: 0;
+	padding: 0 0.9375em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	display: flex;
+}
+
+section:nth-of-type(7) .slider-afbeeldingen>a:last-of-type p {
+	margin: 0;
+	line-height: 3.125em;
+	color: var(--TuincentrumAchtergrond);
+}
+
+
+body.index section:nth-of-type(8) h2 {
+	font-family: 'Bitter', serif;
+	margin-top: 3em;
+	margin-left: 0.7em;
+	font-size: 1.4em;
+	margin-bottom: 0.3em;
+}
+
+body.index section:nth-of-type(8)>a {
+	display: inline-flex;
+	gap: 0.6em;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+	margin-left: 1.2em;
+	margin-bottom: 1.7em;
+}
+
+body.index section:nth-of-type(8)>a img {
+	width: 0.45em;
+	height: auto;
+	margin-top: 0.1em;
+}
+
+body.index section:nth-of-type(8)>div {
+	display: flex;
+	gap: 1em;
+	overflow-x: auto;
+}
+
+body.index section:nth-of-type(8)>div>a {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+body.index section:nth-of-type(8)>div>a article img {
+	margin-left: 1em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	width: 21.3em;
+	height: 20em;
+	object-fit: cover;
+}
+
+body.index section:nth-of-type(8)>div>a article h3 {
+	font-family: 'Bitter', serif;
+	margin-left: 0.9em;
+	font-size: 1.1em;
+}
+
+body.index section:nth-of-type(8)>div>a article p {
+	font-family: 'Montserrat', sans-serif;
+	width: 90%;
+	margin-left: 1.1em;
+	font-size: 0.92em;
+	color: var(--TuincentrumBlog-grijs);
+	margin-top: 2em;
+}
+
+body.index section:nth-of-type(8)>div>a article>div {
+	position: relative;
+	display: inline-block;
+}
+
+body.index section:nth-of-type(8)>div>a article>div>div:nth-of-type(1) {
+	position: absolute;
+	top: 0.8em;
+	left: 2.5em;
+	background-color: var(--TuincentrumGeel);
+	color: var(--TuincentrumAchtergrond);
+	padding: 1em 1.5em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	font-size: 0.7em;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+body.index section:nth-of-type(8)>div>a article>div>div:nth-of-type(2) {
+	position: absolute;
+	bottom: 0.3em;
+	right: 0em;
+	background-color: var(--TuincentrumBlauw);
+	color: var(--TuincentrumAchtergrond1);
+	padding: 1.1em 1em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	font-size: 0.85em;
+}
+
+body.index section:nth-of-type(8)>div>a article>div>div:nth-of-type(2) p {
+	width: 20%;
+}
+
+body.index section:nth-of-type(8)>div>a:nth-of-type(1) article p {
+	margin-top: 3.4em;
+}
+
+body.index section:nth-of-type(8)>div>a:nth-of-type(4) {
+	margin-right: 1.1em;
+}
+
+
+body.index section:nth-of-type(9) h3,
+body.index section:nth-of-type(9) p,
+body.index section:nth-of-type(9) form {
+	position: relative;
+	bottom: 15em;
+	padding: 0 1.5em;
+	color: var(--TuincentrumAchtergrond1);
+}
+
+
+body.index section:nth-of-type(9) {
+	position: relative;
+	width: 90vw;
+	max-width: 800px;
+	height: 320px;
+	border-top-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+	overflow: hidden;
+	margin: 3em auto 0 auto;
+}
+
+body.index section:nth-of-type(9) img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	filter: brightness(50%);
+}
+
+body.index section:nth-of-type(9) h3 {
+	font-size: 1.4em;
+	margin-top: 0;
+	font-weight: bold;
+	margin-bottom: -5em;
+	margin-top: 1.6em;
+	margin-left: -0.5em;
+	font-family: 'Bitter', serif;
+}
+
+body.index section:nth-of-type(9) p {
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+body.index section:nth-of-type(9) input {
+	width: 100%;
+	padding: 1.1em;
+	border: none;
+	border-radius: 0.5em;
+	margin-bottom: 0.8em;
+	font-size: 0.9em;
+	margin-top: 1.3em;
+}
+
+body.index section:nth-of-type(9) button {
+	width: 100%;
+	padding: 1.1em;
+	background-color: var(--TuincentrumZwart1);
+	color: white;
+	border: none;
+	border-radius: 0.5em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+body.index section:nth-of-type(9) p:last-of-type {
+	font-size: 0.75em;
+	margin-top: -4em;
+	margin-left: 0.8em;
+}
+
+body.index section:nth-of-type(9) a {
+	color: var(--TuincentrumAchtergrond1);
+	text-decoration: underline;
+}
+
+footer section:first-of-type {
+	margin-top: 4.5em;
+	background-color: var(--TuincentrumGrijsLicht);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	flex-wrap: nowrap;
+}
+
+footer section:first-of-type img {
+	height: 1.4em;
+	margin-right: 0.3em;
+}
+
+footer section:first-of-type p {
+	font-size: 13px;
+	color: var(--TuincentrumZwart1);
+	margin: 0;
+}
+
+footer section:first-of-type img:nth-of-type(n+2),
+footer section:first-of-type p:nth-of-type(n+2) {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	footer section:first-of-type img {
+		height: 1.6em;
+		margin-right: 0.5em;
+	}
+}
+
+@media (min-width: 992px) {
+	footer section:first-of-type {
+		justify-content: center;
+		gap: 1em;
+	}
+
+	footer section:first-of-type img,
+	footer section:first-of-type p {
+		display: inline-block !important;
+		vertical-align: middle;
+	}
+
+	footer section:first-of-type p {
+		white-space: nowrap;
+	}
+
+	footer section:first-of-type img {
+		margin-right: 0.3em;
+		height: 1.6em;
+	}
+}
+
+
+footer section:nth-of-type(2) {
+	background: var(--TuincentrumDonkergroen1);
+	color: var(--TuincentrumAchtergrond1);
+	padding: 18px;
+	margin-top: 0em;
+}
+
+footer h4 {
+	font-family: 'Bitter', serif;
+	margin-top: 0.7em;
+	margin-bottom: 0;
+	font-size: 0.87em;
+}
+
+footer section:nth-of-type(2) ul {
+	display: flex;
+	justify-content: flex-start;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.366);
+	padding: 0 0 1.5em 0;
+	list-style: none;
+	gap: 1em;
+}
+
+footer section:nth-of-type(2) {
+	position: relative;
+	padding-bottom: 2.5em;
+}
+
+footer section:nth-of-type(2)::after {
+	content: "";
+	position: absolute;
+	bottom: 13em;
+	left: 0.97em;
+	width: 92%;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.366);
+	margin-bottom: 0.9em;
+}
+
+footer section:nth-of-type(2)>a img {
+	width: 12em;
+	height: auto;
+	padding-bottom: 1em;
+}
+
+footer section h4:nth-of-type(2) {
+	margin-top: 2.5em;
+}
+
+footer section:nth-of-type(2) p:first-of-type {
+	color: var(--TuincentrumAchtergrond1);
+	font-size: 0.77em;
+	margin-bottom: 1.3em;
+}
+
+footer section:nth-of-type(2) input {
+	width: 80%;
+	padding: 1em;
+	background-color: var(--TuincentrumAchtergrond1);
+	border: none;
+	border-radius: 1em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+footer input[type="email"]::placeholder {
+	color: #606060;
+	opacity: 0.5;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 200;
+}
+
+footer section:nth-of-type(2)>p:last-of-type {
+	font-size: 0.8em;
+}
+
+footer section:nth-of-type(2)>p:last-of-type a {
+	color: var(--TuincentrumAchtergrond1);
+}
+
+@media (min-width: 768px) {
+	footer section:nth-of-type(2) input {
+		width: 60%;
+	}
+}
+
+@media (min-width: 992px) {
+	footer section:nth-of-type(2) input {
+		width: 40%;
+	}
+}
+
+footer button {
+	background-color: var(--TuincentrumZwart1);
+	border: none;
+	border-radius: 0.8em;
+	margin-left: 0.7em;
+	width: 3em;
+	height: 3em;
+}
+
+footer img {
+	margin-top: 0.17em;
+}
+
+footer section:nth-of-type(3) {
+	background-color: var(--TuincentrumLichtgroen);
+	color: white;
+	padding: 1em;
+	margin: 0;
+	top: 0;
+}
+
+footer section:nth-of-type(3) details {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 0.5em 0;
+}
+
+footer section:nth-of-type(3) details:last-of-type {
+	border-bottom: none;
+}
+
+footer section:nth-of-type(3) summary {
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+}
+
+footer section:nth-of-type(3) summary img {
+	transform: rotate(0deg);
+	transition: transform 0.3s;
+}
+
+footer section:nth-of-type(3) details[open] summary img {
+	transform: rotate(180deg);
+}
+
+footer section:nth-of-type(3) ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+footer section:nth-of-type(3) ul li {
+	margin-bottom: 0.4em;
+	margin-top: 0.5em;
+}
+
+footer section:nth-of-type(3) ul li a {
+	color: var(--TuincentrumAchtergrond1);
+	text-decoration: none;
+	font-size: 0.85em;
+	opacity: 0.8;
+}
+
+footer section:nth-of-type(3) summary {
+	font-size: 0.9em;
+	font-family: 'Bitter', serif;
+}
+
+footer section:nth-of-type(3) ul li a {
+	font-size: 0.85em;
+	opacity: 80%;
+	list-style: none;
+}
+
+footer section:last-of-type {
+	margin-top: 1em;
+	margin-bottom: 1.5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5em;
+}
+
+footer section:last-of-type ul {
+	display: flex;
+	gap: 1em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+footer section:last-of-type ul li a {
+	color: var(--TuincentrumZwar2);
+	text-decoration: none;
+	font-size: 0.8em;
+}
+
+footer section:last-of-type div {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	gap: 0.7em;
+	display: flex;
+	justify-content: center;
+}
+
+.tuinmeubelen {
+	margin-bottom: 1.5em;
+}
+
+
+.tuinmeubelen main nav:nth-of-type(2) {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.tuinmeubelen main nav:nth-of-type(2) {
+		display: flex;
+	}
+}
+
+.tuinmeubelen main>a:first-of-type {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	text-decoration: none;
+	color: var(--TuincentrumBlog-grijs);
+	font-size: 0.75em;
+}
+
+.tuinmeubelen main>a:first-of-type img {
+	margin-left: 1em;
+}
+
+.tuinmeubelen main section:nth-of-type(2) img {
+	display: block;
+	width: 100%;
+	height: 14.3em;
+	object-fit: cover;
+	margin-top: -1em;
+}
+
+.tuinmeubelen main section:nth-of-type(2) {
+	position: relative;
+}
+
+.tuinmeubelen main section:nth-of-type(2)::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 13em;
+	width: 95%;
+	height: 20em;
+	background-color: var(--TuincentrumAchtergrond);
+	border-radius: 1em;
+}
+
+.tuinmeubelen main section:nth-of-type(2) h1,
+.tuinmeubelen main section:nth-of-type(2) p {
+	position: relative;
+	z-index: 2;
+}
+
+.tuinmeubelen main section:nth-of-type(2) h1 {
+	text-shadow: none;
+	text-transform: none;
+	font-size: 1.6em;
+	margin-left: 0.5em;
+	margin-top: 0;
+}
+
+.tuinmeubelen main section:nth-of-type(2) p {
+	font-size: 0.9em;
+	margin-left: 1em;
+	margin-top: 0;
+	width: 85%;
+	color: var(--TuincentrumBlog-grijs);
+	border-bottom: 1px solid #d4d4d4;
+	padding-bottom: 4em;
+}
+
+.tuinmeubelen main section:nth-of-type(3) h2 {
+	font-size: 1.2em;
+	font-family: 'Bitter', serif;
+	z-index: 100;
+}
+
+
+@media (min-width: 992px) {
+	.tuinmeubelen main section:nth-of-type(3) {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: start;
+		column-gap: 2em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(3) h2 {
+		grid-column: 1 / -1;
+		margin-bottom: 1em;
+		margin-left: 1em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(3) img {
+		grid-column: 1;
+		width: 40em;
+		height: auto;
+		margin: 0;
+	}
+
+	.tuinmeubelen main section:nth-of-type(3) p,
+	.tuinmeubelen main section:nth-of-type(3) a {
+		grid-column: 2;
+		width: 60%;
+		z-index: 99;
+	}
+
+
+}
+
+@media (min-width: 992px) {
+	.tuinmeubelen main section:nth-of-type(3) a:last-of-type p {
+		border-bottom: none;
+		padding-bottom: 0;
+		margin-top: -4em;
+		margin-left: 0em;
+	}
+}
+
+@media (min-width: 1024px) {
+	.tuinmeubelen main section:nth-of-type(3) a:last-of-type p {
+		border-bottom: none;
+		padding-bottom: 0;
+		margin-top: -5em;
+		margin-left: 0em;
+	}
+}
+
+.tuinmeubelen main section:nth-of-type(3) img {
+	width: 17em;
+	z-index: 101;
+	height: auto;
+	margin-left: 2.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(3) p {
+	font-size: 0.95em;
+	color: var(--TuincentrumBlog-grijs);
+}
+
+.tuinmeubelen main section:nth-of-type(3) a {
+	display: inline-block;
+	text-decoration: none;
+	box-shadow: none;
+}
+
+.tuinmeubelen main section:nth-of-type(3) a p {
+	margin-left: -1.2em;
+	color: var(--TuincentrumLichtgroen);
+	font-size: 0.85em;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: -2em;
+	border-bottom: 1px solid #d4d4d4;
+	padding-bottom: 7.5em;
+	display: block;
+	font-weight: 700;
+}
+
+
+@media (min-width: 992px) {
+	.tuinmeubelen main section:nth-of-type(4) h2 {
+		margin-left: 1em;
+	}
+}
+
+@media (min-width: 1024px) {
+	.tuinmeubelen main section:nth-of-type(4) ul {
+		margin-left: -2em;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+
+.tuinmeubelen main section:nth-of-type(4) a {
+	width: 13.5em;
+	height: 13em;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
+.tuinmeubelen main section:nth-of-type(4) a img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transform: scale(1.55);
+	display: block;
+}
+
+.tuinmeubelen main section:nth-of-type(4) h2 {
+	display: flex;
+	justify-content: left;
+	font-size: 1.4em;
+	margin-bottom: 1em;
+	margin-top: -1em;
+}
+
+
+.tuinmeubelen main section:nth-of-type(5)::before {
+	display: none !important;
+	content: none !important;
+}
+
+
+.tuinmeubelen main section:nth-of-type(5) ul li {
+	border-top-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+	border-top-left-radius: 1.5em;
+	border-bottom-right-radius: 1.5em;
+}
+
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(1)>img:first-of-type {
+	width: 8em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(1)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(1)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(1)>img:last-of-type {
+	width: 3.5em;
+	height: auto;
+	position: absolute;
+	top: 0;
+}
+
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(2)>img:first-of-type {
+	width: 12.3em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(2)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(2)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(2)>img:last-of-type {
+	width: 3.5em;
+	height: auto;
+	position: absolute;
+	top: 0;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(3)>img:first-of-type {
+	width: 12.3em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(3)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(3)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(3)>img:last-of-type {
+	width: 4em;
+	height: auto;
+	position: absolute;
+	margin-left: -0.5em;
+	top: 0;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(3) div:nth-of-type(2) {
+	background-color: var(--TuincentrumOranje);
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(4)>img:first-of-type {
+	width: 11em;
+	height: auto;
+	margin-bottom: 1.65em;
+	margin-top: 4.7em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(4)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	top: 1em;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(4)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 24.4%;
+}
+
+.tuinmeubelen main section:nth-of-type(5) h2 {
+	display: flex;
+	justify-content: left;
+	font-size: 1.4em;
+	margin-bottom: -0.5em;
+	margin-top: -1em;
+	margin-left: 1em;
+}
+
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(5)>img:first-of-type {
+	width: 11em;
+	margin-top: 5.6em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(5)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(5)>p:nth-of-type(2) {
+	font-size: 0.8em;
+	position: absolute;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.3em 0.7em;
+	border-radius: 10em;
+	right: 17.5%;
+	bottom: 19.7%;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(5)>img:last-of-type {
+	width: 3.5em;
+	height: auto;
+	position: absolute;
+	top: 0;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(6)>img:first-of-type {
+	width: 11em;
+	margin-top: 5.6em;
+	height: auto;
+	margin-bottom: 1.65em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(6)>img:nth-of-type(2) {
+	width: 7.5em;
+	height: auto;
+	margin-bottom: 0.4em;
+	margin-left: 0.25em;
+	position: absolute;
+	right: -13%;
+	height: 1.5em;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(6) p:last-of-type {
+	z-index: 999;
+	color: var(--TuincentrumZwart);
+	text-decoration: none;
+}
+
+.tuinmeubelen main section:nth-of-type(5) ul li:nth-of-type(6) div:nth-of-type(2) {
+	background-color: var(--TuincentrumZwart);
+}
+
+
+
+
+
+
+
+
+@media (min-width: 1024px) {
+	.tuinmeubelen main section:nth-of-type(5) ul {
+		margin-left: 1em;
+	}
+}
+
+@media (min-width: 992px) {
+	.tuinmeubelen main section:nth-of-type(5) h2 {
+		margin-left: 1.7em;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+.tuinmeubelen main section:nth-of-type(6) p:first-of-type {
+	text-transform: none;
+	color: var(--TuincentrumZwart);
+	font-weight: normal;
+	font-size: 0.9em;
+	margin-left: 1.2em;
+	width: 95%;
+}
+
+.tuinmeubelen main section:nth-of-type(6) h2 {
+	font-family: 'Bitter', serif;
+	text-align: left;
+	font-size: 1.4em;
+	margin-top: 2.2em;
+	margin-left: 0.7em;
+	margin-right: 1em;
+}
+
+.tuinmeubelen main section:nth-of-type(6) .slider2 {
+	width: 26.7em;
+	overflow: hidden;
+	margin: 1.5em auto;
+	position: relative;
+}
+
+.tuinmeubelen main section:nth-of-type(6) .slider-afbeeldingen2 {
+	display: flex;
+	margin-left: 9.5em;
+	margin-top: 1em;
+	transition: transform 0.5s ease;
+}
+
+.tuinmeubelen main section:nth-of-type(6) .slider-afbeeldingen2>* {
+	flex-shrink: 0;
+	margin-right: 14.4em;
+	height: 3em;
+	object-fit: contain;
+}
+
+.tuinmeubelen main section:nth-of-type(6) .slider-afbeeldingen2>a img {
+	height: 3em;
+	object-fit: contain;
+	filter: grayscale(100%);
+	opacity: 0.6;
+	transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+@media (min-width: 992px) {
+
+	.tuinmeubelen main section:nth-of-type(6) h2,
+	p {
+		margin-left: 1.3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.tuinmeubelen main section:nth-of-type(6) p:first-of-type {
+		display: flex;
+		justify-content: center;
+		font-size: 1em;
+	}
+}
+
+.tuinmeubelen main section:nth-of-type(7) {
+	position: relative;
+	width: 90vw;
+	height: 170px;
+	max-width: 800px;
+	overflow: hidden;
+	margin: 2em auto;
+	margin-top: 5em;
+}
+
+.tuinmeubelen main section:nth-of-type(7)>img:first-of-type {
+	width: 95%;
+	height: 100%;
+	margin-left: 0.5em;
+	object-fit: cover;
+	display: block;
+	filter: brightness(50%);
+	border-top-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+}
+
+.tuinmeubelen main section:nth-of-type(7)>h3 {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--TuincentrumAchtergrond1);
+	z-index: 1000;
+	font-family: 'Bitter', serif;
+	font-size: 1.3em;
+	font-weight: 700;
+	text-align: center;
+	width: 100%;
+}
+
+
+.tuinmeubelen main section:nth-of-type(7)>a {
+	position: absolute;
+	bottom: 1.5em;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #1c1b1f;
+	padding: 0.9em 4em;
+	border-radius: 0.8em;
+	font-weight: 600;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	width: 75%;
+	margin-bottom: 0.8em;
+}
+
+.tuinmeubelen main section:nth-of-type(7)>a>p {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.9em;
+	color: white;
+	white-space: nowrap;
+}
+
+.tuinmeubelen main section:nth-of-type(7)>a>img {
+	width: 0.6em;
+	height: 0.6em;
+}
+
+.tuinmeubelen main section:nth-of-type(8) h2 {
+	font-family: 'Bitter', serif;
+	margin-top: 3em;
+	margin-left: 0.7em;
+	font-size: 1.4em;
+	margin-bottom: 0.3em;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>a {
+	display: inline-flex;
+	gap: 0.6em;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+	margin-left: 1.2em;
+	margin-bottom: 1.7em;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>a img {
+	width: 0.45em;
+	height: auto;
+	margin-top: 0.1em;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div {
+	display: flex;
+	gap: 1em;
+	overflow-x: auto;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article img {
+	margin-left: 1em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	width: 21.3em;
+	height: 20em;
+	object-fit: cover;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article h3 {
+	font-family: 'Bitter', serif;
+	margin-left: 0.9em;
+	font-size: 1.1em;
+	text-decoration: underline;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article p {
+	font-family: 'Montserrat', sans-serif;
+	width: 90%;
+	margin-left: 1.1em;
+	font-size: 0.92em;
+	color: var(--TuincentrumBlog-grijs);
+	margin-top: 2em;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article>div {
+	position: relative;
+	display: inline-block;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article>div>div:nth-of-type(1) {
+	position: absolute;
+	top: 0.8em;
+	left: 2.5em;
+	background-color: var(--TuincentrumGeel);
+	color: var(--TuincentrumAchtergrond2);
+	padding: 1em 1.5em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	font-size: 0.7em;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article>div>div:nth-of-type(2) {
+	position: absolute;
+	bottom: 0.3em;
+	right: 0em;
+	background-color: rgb(10, 18, 37);
+	color: var(--TuincentrumAchtergrond);
+	padding: 1.1em 1em;
+	border-top-left-radius: 0.75em;
+	border-bottom-right-radius: 0.75em;
+	font-size: 0.85em;
+	text-decoration: underline;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a article>div>div:nth-of-type(2) p {
+	width: 20%;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a:nth-of-type(1) article p {
+	margin-top: 2em;
+	width: 95%;
+}
+
+.tuinmeubelen main section:nth-of-type(8)>div>a:nth-of-type(3) {
+	margin-right: 1.1em;
+}
+
+
+@media (min-width: 1120px) {
+	.tuinmeubelen main section:nth-of-type(8)>div {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2em;
+		justify-content: center;
+		overflow-x: visible;
+	}
+
+	.tuinmeubelen main section:nth-of-type(8)>div>a {
+		max-width: 27.5%;
+		min-width: 20em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(8)>div>a article img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-top-left-radius: 0.75em;
+		border-bottom-right-radius: 0.75em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(8)>div>a article p {
+		max-width: 90%;
+		margin: 1em auto 2em auto;
+		text-align: left;
+	}
+
+	.tuinmeubelen main section:nth-of-type(8)>div>a:first-of-type article img {
+		height: 19.5em;
+	}
+}
+
+.tuinmeubelen main section:nth-of-type(9) {
+	color: #333;
+	max-width: 37.5em;
+	margin: 2.5em auto;
+	padding: 0 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(9) h2 {
+	font-size: 1.375em;
+	font-family: 'Bitter', serif;
+	width: 90%;
+	margin-top: 3em;
+	font-weight: bold;
+	color: var(--TuincentrumZwart);
+	margin-bottom: 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(9) p {
+	margin-bottom: 1em;
+	font-size: 0.9em;
+	color: var(--TuincentrumBlog-grijs);
+	width: 97%;
+}
+
+.tuinmeubelen main section:nth-of-type(9) li {
+	margin-bottom: 0.5em;
+	font-size: 0.9em;
+	color: var(--TuincentrumZwart);
+}
+
+.tuinmeubelen main section:nth-of-type(9) a {
+	color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+}
+
+.tuinmeubelen main section:nth-of-type(10) {
+	color: #333;
+	max-width: 37.5em;
+	margin: 2.5em auto;
+	padding: 0 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(10) h2 {
+	font-size: 1.375em;
+	font-family: 'Bitter', serif;
+	width: 90%;
+	margin-top: 0.2em;
+	font-weight: bold;
+	color: var(--TuincentrumZwart);
+	margin-bottom: 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(10) p {
+	margin-bottom: 1em;
+	font-size: 0.9em;
+	color: var(--TuincentrumBlog-grijs);
+	width: 97%;
+}
+
+.tuinmeubelen main section:nth-of-type(11) {
+	color: #333;
+	max-width: 37.5em;
+	margin: 2.5em auto;
+	padding: 0 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(11) h2 {
+	font-size: 1.375em;
+	font-family: 'Bitter', serif;
+	width: 90%;
+	margin-top: 0.2em;
+	font-weight: bold;
+	color: var(--TuincentrumZwart);
+	margin-bottom: 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(11) p {
+	margin-bottom: 1em;
+	font-size: 0.9em;
+	color: var(--TuincentrumBlog-grijs);
+	width: 97%;
+}
+
+.tuinmeubelen main section:nth-of-type(11) a {
+	color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+}
+
+
+
+.tuinmeubelen main section:nth-of-type(12) {
+	color: #333;
+	max-width: 37.5em;
+	margin: 2.5em auto;
+	padding: 0 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(12) h2 {
+	font-size: 1.375em;
+	font-family: 'Bitter', serif;
+	width: 90%;
+	margin-top: 0.2em;
+	font-weight: bold;
+	color: var(--TuincentrumZwart);
+	margin-bottom: 1.25em;
+}
+
+.tuinmeubelen main section:nth-of-type(12) p {
+	margin-bottom: 1em;
+	font-size: 0.9em;
+	color: var(--TuincentrumBlog-grijs);
+	width: 97%;
+}
+
+.tuinmeubelen main section:nth-of-type(12) a {
+	color: var(--TuincentrumLichtgroen);
+	text-decoration: none;
+}
+
+
+@media (min-width: 768px) {
+
+	.tuinmeubelen main section:nth-of-type(9),
+	.tuinmeubelen main section:nth-of-type(10),
+	.tuinmeubelen main section:nth-of-type(11),
+	.tuinmeubelen main section:nth-of-type(12) {
+		max-width: 50em;
+		padding: 0 2em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(9) h2,
+	.tuinmeubelen main section:nth-of-type(10) h2,
+	.tuinmeubelen main section:nth-of-type(11) h2,
+	.tuinmeubelen main section:nth-of-type(12) h2 {
+		font-size: 1.5em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(9) p,
+	.tuinmeubelen main section:nth-of-type(10) p,
+	.tuinmeubelen main section:nth-of-type(11) p,
+	.tuinmeubelen main section:nth-of-type(12) p {
+		font-size: 1em;
+		line-height: 1.6;
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.tuinmeubelen main section:nth-of-type(9),
+	.tuinmeubelen main section:nth-of-type(10),
+	.tuinmeubelen main section:nth-of-type(11),
+	.tuinmeubelen main section:nth-of-type(12) {
+		max-width: 70em;
+		padding: 0 3em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(9) h2,
+	.tuinmeubelen main section:nth-of-type(10) h2,
+	.tuinmeubelen main section:nth-of-type(11) h2,
+	.tuinmeubelen main section:nth-of-type(12) h2 {
+		font-size: 1.7em;
+	}
+
+	.tuinmeubelen main section:nth-of-type(9) p,
+	.tuinmeubelen main section:nth-of-type(10) p,
+	.tuinmeubelen main section:nth-of-type(11) p,
+	.tuinmeubelen main section:nth-of-type(12) p {
+		font-size: 1.05em;
+		max-width: 60em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+a:focus {
+  outline: 3px solid #e24829;
+  outline-offset: 3px;
+  border-radius: 4px;
+}	
+
+button:focus {
+  outline: 3px solid #e24829;
+  outline-offset: 2px;
+}
+
+summary:focus {
+  outline: 2px solid #e24829;
+  outline-offset: 2px;
+}
+
+
+
+
+/* Bronnen /*
+https://chatgpt.com/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+https://developer.mozilla.org/en-US/docs/Web/CSS/::before
+https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x
+https://www.w3schools.com/tags/att_input_placeholder.asp 
+https://www.w3schools.com/css/css3_mediaqueries_ex.asp 
+https://developer.mozilla.org/en-US/docs/Web/CSS/z-index 
